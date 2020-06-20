@@ -1,0 +1,20 @@
+<%
+var fmtline = function (line) {
+    var i, ret;
+    for (i = 0; line[i] != ' '; i++);
+    ret = '';
+    ret += i ? '<span class="line chorus-or-refrain">' : '<span class="line">';
+    ret += line;
+    ret += '</span>';
+    ret += '<br/>'; // It's song lyrics, so linebreaks have semantic meaning
+    return ret;
+};
+%>
+
+<% for (var i = 0; i < lyrics.length; i++) { %>
+    <div class="stanza">
+        <% for (var j = 0; j < lyrics[i].length; j++) { %>
+            <%= fmtline(lyrics[i][j]) %>
+        <% } %>
+    </div>
+<% } %>

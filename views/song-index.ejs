@@ -1,0 +1,13 @@
+<html>
+    <body>
+        <h1>Songs</h1>
+        <div>
+        <% songs.forEach( (song) => { %>
+            <p><a href="/songs/<% song.id %>"><%= song.name %></a></p>
+        <% } ); %>
+        </div>
+        <div>
+            <a href="/songs/new">Submit a new song</a>
+        </div>
+    </body>
+</html>

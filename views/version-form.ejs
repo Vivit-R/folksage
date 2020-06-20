@@ -1,0 +1,35 @@
+<%
+var route = id;
+var versionLyrics;
+var versionName;
+if (version) {
+    versionName = version.name;
+    versionLyrics = version.lyrics;
+} else {
+    versionName = '';
+    versionLyrics = '';
+}
+%>
+
+<form action="<%= route %>">
+    <div class="field">
+        <label for="version-name">Version Name</label>
+        <input name="version[name]"
+               id="version-name"
+               placeholder="e.g. \"Child A\""
+               type="text" value="<%= versionName %>"/>
+    </div>
+    <div class="field">
+        <label for="version-lyrics">Lyrics</label>
+        <input name="version[lyrics]"
+               id="version-lyrics"
+               placeholder="<%= 'Seperate lines with one newline and verses ' +
+                            'with two or more newlines. Indent choruses and ' +
+                            'refrains by one or more spaces.' %>"
+               type="textarea"
+               value="<%= versionLyrics %>"/>
+    </div>
+    <div class="action">
+        <input type="submit" name="submit" value="Submit"/>
+    </div>
+</form>

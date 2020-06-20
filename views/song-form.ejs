@@ -1,0 +1,23 @@
+<%
+if (song.id) {
+    route = `/songs/${song.id}`;
+} else {
+    route = '/songs/new';
+}
+var songName = song.name ? song.name : "";
+
+%>
+
+<form action="<%= route %>" accept-charset="UTF-8" method="post">
+    <div class="field">
+        <label for="song-name">Song Name</label>
+        <input id="song-name"
+               name="song[name]"
+               type="text"
+               value="<%= songName %>"/>
+    </div>
+    <div class="actions">
+        <input type="submit" name="commit" type="text" value="Submit"/>
+    </div>
+
+</form>
